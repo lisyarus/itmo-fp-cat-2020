@@ -126,7 +126,7 @@ X \arrow{r}{f} & Y
 Морфизмы могут быть обратными друг другу:
 \begin{equation}
 \begin{tikzcd}
-X \arrow{r}{f} \onslide*<2->{\arrow[bend right]{rr}{id_X}} & Y \arrow{r}{g} & X
+X \arrow{r}{f} \onslide*<2->{\arrow[bend right]{rr}{id_X}} & Y \arrow{r}{g} \onslide*<2->{\arrow[bend left]{rr}{id_Y}} & X \arrow{r}{f} & Y
 \end{tikzcd}
 \end{equation}
 \pause
@@ -401,7 +401,7 @@ F(g) = F(f^{-1}) = F(f)^{-1} = F(g)
 \pause
 \item Забывающие функторы, например \begin{math}\mathbf{Grp} \rightarrow \mathbf{Set}\end{math}
 \pause
-\item Если категории --- частичные порядки, то функтор --- монотонная функция
+\item Если категории --- частичные порядки, то функтор --- возрастающая функция
 \pause
 \item Если категории --- моноиды/группы, то функтор --- гомоморфизм моноидов/групп
 \pause
@@ -555,7 +555,7 @@ C^{op}: && X & \arrow{l}[swap]{f} Y
 \pause
 \item \texttt{f :: a -> [a]}
 \begin{itemize}
-\item \texttt{f = replicate n}
+\item \texttt{f = replicate n} или \texttt{f = repeat}
 \end{itemize}
 \pause
 \item \texttt{f :: [a] -> Int}
