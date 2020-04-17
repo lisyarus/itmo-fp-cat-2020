@@ -10,21 +10,6 @@
 \usepackage{graphicx}
 \graphicspath{{../}}
 
-\iffalse
-План:
-- История (упор на то, что это язык)
-- Основные определения
-- Обзор применения в математике
--- В основном, как языка
--- Пара примеров _реального_ применения
--- Примеры duality
--- 
-- Связь с теорией типов и логикой, Карри-Говард-Ламбек
-- Применение в Хаскеле: монады, free theorems, линзы, линейная логика, ...
-- Hask is not a category
-- int-cat, HoTT
-\fi
-
 \title{Теория категорий}
 \author{Никита Лисица}
 \date{2020}
@@ -40,6 +25,10 @@
 \item Первая половина XX --- развитие алгебраической топологии
 \pause
 \item 1940е: Эйленберг, Маклейн --- определения категории, функторов, \textit{естественных преобразований}
+\pause
+\begin{itemize}
+\item \(\Rightarrow\) Аксиомы Эйленберга-Стинрода
+\end{itemize}
 \pause
 \item 1950-60е: Серр, Гротендик, et al. --- бум алгебраической геометрии
 \pause
@@ -70,9 +59,9 @@
 \begin{block}{Категория \begin{math}C\end{math} --- это}
 \begin{itemize}
 \pause
-\item Набор \textit{объектов} \begin{math}Ob(C)\end{math}
+\item Набор* \textit{объектов} \begin{math}Ob(C)\end{math}
 \pause
-\item \begin{math}\forall X,Y \in Ob(C) \end{math} набор \textit{морфизмов}/\textit{стрелок} \begin{math}Hom_C(X,Y)\end{math}
+\item \begin{math}\forall X,Y \in Ob(C) \end{math} набор* \textit{морфизмов}/\textit{стрелок} \begin{math}Hom_C(X,Y)\end{math}
 \pause
 \item Композиция морфизмов: \begin{math}f\in Hom_C(X,Y), g \in Hom_C(Y,Z) \Rightarrow g\circ f:Hom_C(X,Z)\end{math}
 \end{itemize}
@@ -175,7 +164,6 @@ X \arrow{r}{f} \onslide*<2->{\arrow[bend right]{rr}{id_X}} & Y \arrow{r}{g} & X
 \begin{frame}
 \frametitle{Примеры категорий}
 \begin{itemize}
-\pause
 \item Моноид \begin{math}\Leftrightarrow\end{math} категория с одним объектом
 \item Группа \begin{math}\Leftrightarrow\end{math} категория с одним объектом, где все морфизмы обратимы
 \item Предпорядок \begin{math}\Leftrightarrow\end{math} категория, где между любыми объектами не более одного морфизма
@@ -454,7 +442,7 @@ F(g) = F(f^{-1}) = F(f)^{-1} = F(g)
 \begin{equation}
 \begin{tikzcd}
 X \arrow{d}{f} && F(X) \arrow{d}[swap]{F(f)} \arrow{r}{\eta_X} & G(X) \arrow{d}{G(f)} \\
-Y && F(Y) \arrow{r}{eta_Y} & G(Y)
+Y && F(Y) \arrow{r}{\eta_Y} & G(Y)
 \end{tikzcd}
 \end{equation}
 \begin{equation}\eta_Y \circ F(f) = G(f) \circ \eta_X\end{equation}
@@ -675,7 +663,7 @@ nLab: computational trinitarianism
 \item Что означает равенство функций в Хаскеле?
 \pause
 \begin{itemize}
-\item Синтаксически равные термы \pause --- \texttt{fst != swap . snd}
+\item Синтаксически равные термы \pause --- \texttt{fst != snd . swap}
 \pause
 \item Денотационно равные функции \pause --- никто не описал денотационную семантику Хаскеля
 \end{itemize}
